@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>📝 Evaluación N°1</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style1.css" />
+    </head>
+    <body>
+        <header>
+            <p>
+                <a href="index1.html">Hola</a>
+                <a href="page-1.html">Caleidoscopio</a>
+                <a href="page-2.html">Condiciones</a>
+                <a href="page-3.html">Poema Aleatorio</a>
+                <a href="page-4.html">Orbit Control</a>
+                <a href="page-5.html" class="activo">Animación</a>
+            </p>
+            <h1>Animación</h1>
+        </header>
+        <main>
+            <aside>
+                <button onclick="foto()">🖼️ DESCARGA</button>
+            </aside>
+        </main>
+        <script>
+            // Declare variable for the horizontal position of the circle
+            let x = 25;
+            function setup() {
+                // Create the canvas
+                createCanvas(windowWidth, windowHeight);
+
+                // Set the color mode to hue-saturation-brightness (HSB)
+                colorMode(HSB);
+
+                // Set the text size
+                textSize(20);
+
+                // No animation to start
+                noLoop();
+            }
+
+            function draw() {
+                // Clear the background
+                background("#283593");
+
+                // Eliminar el contorno del círculo
+                noStroke();
+
+                // Draw a circle, with hue determined by frameCount
+                fill(x / 3, 90, 90);
+                circle(x, height / 2, 100); //El 2 es la altura donde irá el círculo y el 100, el tamaño
+
+                // Increase the x variable by 5
+                x += 5;
+
+                // Reset the circle position after it moves off the right side
+                if (x > width + 25) {
+                    x = -25;
+                }
+
+                describe("circle moving to the right");
+            }
+
+            function mousePressed() {
+                // Start/stop the animation loop
+                if (isLooping()) {
+                    noLoop();
+                } else {
+                    loop();
+                }
+            }
+            function keyPressed() {
+                // Draw one frame
+                redraw();
+            }
+
+            function foto() {
+                saveCanvas("animación.jpg");
+            }
+        </script>
+    </body>
+</html>

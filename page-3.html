@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>📝 Evaluación N°1</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style1.css" />
+    </head>
+    <body>
+        <header>
+            <p>
+                <a href="index1.html">Hola</a>
+                <a href="page-1.html">Caleidoscopio</a>
+                <a href="page-2.html">Condiciones</a>
+                <a href="page-3.html" class="activo">Poema Aleatorio</a>
+                <a href="page-4.html">Orbit Control</a>
+                <a href="page-5.html">Animación</a>
+            </p>
+            <h1></h1>
+            <h2>Poema Aleatorio</h2>
+        </header>
+        <main>
+            <aside>
+                <button onclick="foto()">🖼️ DESCARGA</button>
+            </aside>
+        </main>
+        <script>
+            let words = [
+                "La",
+                "espera",
+                "me",
+                "agotó",
+                "no",
+                "sé",
+                "nada",
+                "de",
+                "vos",
+                "dejaste",
+                "tanto",
+                "en",
+                "mí",
+                "en",
+                "llamas",
+                "me",
+                "acosté",
+                "y",
+                "en",
+                "un",
+                "lento",
+                "degradé",
+                "supe",
+                "que",
+                "te",
+                "perdí",
+                "Qué",
+                "otra",
+                "cosa",
+                "puedo",
+                "hacer",
+                "si",
+                "no",
+                "olvido",
+                "moriré",
+                "y",
+                "otro",
+                "crimen",
+                "quedará",
+                "otro",
+                "rápida",
+                "traición",
+                "muy",
+                "tarde",
+                "crimen",
+                "lento",
+                "the",
+                "metaphor",
+                "no",
+                "a",
+                "sketch",
+                "espera",
+                "me",
+                "acosté",
+                "degradé",
+                "lento",
+                "crimen",
+                "amor",
+                "traición",
+                "amor",
+                "a",
+                "vez",
+                "dejaste",
+                "tanto",
+                "celos",
+                "vez",
+                "otro",
+                "espera",
+                "olvido",
+                "moriré",
+                "perdí",
+                "Qué",
+                "dejaste",
+                "tanto",
+                "amor",
+                "salimos",
+                "donde",
+                "mi",
+                "ego",
+                "va",
+                "a",
+                "estallar",
+                "ahí",
+                "tarde",
+                "cuanto",
+                "falta",
+                "sin",
+                "resolver",
+            ];
+            // Set the amount of words to be drawn on the canvas, as well as the starting hue value. Declare the position variable,which will be used to randomly start the word selection in the array.
+            let wordCount = 40;
+            let hue;
+            let position;
+
+            function setup() {
+                describe("A random series of words related to p5.js scattered onto the canvas.");
+
+                // Import the selected font style defined in the canvas's style.css file.
+                textFont("Work Sans");
+                createCanvas(windowWidth, windowHeight);
+
+                // Set the text alignment to center and set the color mode to HSB.
+                textAlign(CENTER);
+                colorMode(HSB);
+
+                // Define hue as a random value.
+                hue = random(180, 360);
+
+                // Define the random starting point for selecting the words in the array.
+                position = floor(random(0, words.length - wordCount));
+                background("#283593");
+
+                // Draw as many words as set with the words variable in the canvas in random positions. (number od words)
+                for (let i = 0; i < 50; i++) {
+                    textSize(random(16, 48));
+                    fill("#BBDEFB"), random("#FFFFFF");
+                    let yPos = random(windowHeight / 3, windowHeight - 100);
+                    text(random(words), random(windowWidth), yPos);
+                }
+            }
+
+            // Draw as many words as set with the words variable in the canvas in random positions.
+            for (let i = 0; i < 20; i++) {
+                textSize(random(16, 48));
+                fill(255);
+                text(random(words), random(xMin, xMax), random(yMin, yMax));
+            }
+
+            function foto() {
+                saveCanvas("poema_aleatorio.jpg");
+            }
+        </script>
+    </body>
+</html>
